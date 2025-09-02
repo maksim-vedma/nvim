@@ -35,7 +35,8 @@ keymap("n", "<Leader>q", "<cmd>q<CR>", s)                          -- Quit Neovi
 keymap("n", "<Leader>te", "<cmd>tabnew<CR>", s)                    -- Open a new tab
 keymap("n", "<Leader>|", "<cmd>vsplit<CR>", s)                     -- Split the window vertically
 keymap("n", "<Leader>-", "<cmd>split<CR>", s)                      -- Split the window horizontally
-keymap("n", "<Leader>lf", ":lua vim.lsp.buf.format()<CR>", s)      -- Format the current buffer using LSP
+keymap("n", "grf", ":lua vim.lsp.buf.format()<CR>", s)      -- Format the current buffer using LSP
+-- keymap("n", "<Leader>lf", ":lua vim.lsp.buf.format()<CR>", s)      -- Format the current buffer using LSP
 keymap("n", "<Leader>la", ":lua vim.lsp.buf.code_action()<CR>", s) -- LSP Code Action ("gra")
 keymap("n", "<Leader>li", ":LspInfo<CR>", s)
 -- clipboard
@@ -49,8 +50,19 @@ keymap("t", "<Esc>", "<C-\\><C-N>")      -- Exit terminal mode
 -- keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
 
 local opts = { noremap = true, silent = true }
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) -- Go to definition
+-- lsp
+keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)  -- Go to definition
 keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- Go to declaration
+--  defaults
+-- keymap("n", "grn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+-- keymap("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+-- keymap("n", "grr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+-- keymap("n", "gri", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+-- keymap("n", "grt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+-- keymap("n", "g0", "<cmd>lua vim.lsp.buf.oducment_symbol()<CR>", opts)
+-- CTRL-S is mapped in Insert mode to vim.lsp.buf.signature_help()
+-- "an" and "in" are mapped in Visual mode to outer and inner incremental selections, respectively, using vim.lsp.buf.selection_range()
 
 -- vim.pack
 keymap("n", "<leader>Pu", ":lua vim.pack.update()<CR>", opts) -- update plugins "pack update"
+keymap("n", "<leader>Pm", ":Mason<CR>", opts)                 -- Open Mason

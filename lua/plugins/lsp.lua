@@ -15,14 +15,8 @@ vim.lsp.enable({
   "tinymist",
   "ts_ls",
   "rust-analyzer",
+  "phpactor",
 })
 
--- vim.lsp.config('tailwind_language_server', {})
-
--- vim.lsp.config('rust-analyzer', {
---     settings = {
---         ['rust-analyser'] = {},
---     }
--- })
-
+vim.lsp.config('phpactor', {})
 vim.diagnostic.config({ virtual_text = true })

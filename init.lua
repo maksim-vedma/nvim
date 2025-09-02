@@ -1,0 +1,18 @@
+-- this configuration requires neovim >= 0.12 (vim.pack)
+-- core
+require("options")
+require("keymaps")
+require("statusline")
+require("autocmds")
+-- plugins
+require("plugins.lsp")
+require("plugins.ui")
+require("plugins.cmp")
+require("plugins.oil")
+require("plugins.flash")
+require("plugins.colorscheme")
+require("plugins.pick")
+require("plugins.git")
+require("plugins.pairs")
+require("plugins.surround")
+-- [base on](https://vieitesss.github.io/posts/Neovim-new-config/)

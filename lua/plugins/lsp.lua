@@ -11,13 +11,13 @@ vim.lsp.enable({
   -- "bashls",
   "lua_ls",
   "emmet_language_server",
-  "tailwind_language_server",
+  "tailwindcss",
   "tinymist",
   "ts_ls",
   "rust-analyzer",
 })
 
-vim.lsp.config('tailwind_language_server', {})
+-- vim.lsp.config('tailwind_language_server', {})
 
 -- vim.lsp.config('rust-analyzer', {
 --     settings = {

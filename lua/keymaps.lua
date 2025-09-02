@@ -49,7 +49,8 @@ keymap("t", "<Esc>", "<C-\\><C-N>")      -- Exit terminal mode
 -- keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
 
 local opts = { noremap = true, silent = true }
--- keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) -- Go to definition
+keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) -- Go to definition
+keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- Go to declaration
 
 -- vim.pack
 keymap("n", "<leader>Pu", ":lua vim.pack.update()<CR>", opts) -- update plugins "pack update"

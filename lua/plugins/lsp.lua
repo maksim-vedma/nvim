@@ -8,7 +8,9 @@ vim.pack.add({
 require("mason").setup()
 
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "html", "javascript", "typescript", "tsx", "php", "rust", "yaml" }
+    ensure_installed = { "html", "javascript", "typescript", "tsx", "php", "rust", "yaml" },
+    highlight = { enabled = true },
+    indent = { enabled = true },
 })
 
 -- will load configs from lsp/ dir [lspconfig](https://github.com/neovim/nvim-lspconfig/tree/master/lsp)lspconfig)

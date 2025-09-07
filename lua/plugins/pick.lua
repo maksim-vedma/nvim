@@ -3,6 +3,10 @@ vim.pack.add({
 })
 
 require('mini.pick').setup()
-vim.keymap.set('n', '<leader>ff', ":Pick files<CR>")
-vim.keymap.set('n', '<leader>fg', ":Pick grep<CR>")
-vim.keymap.set('n', '<leader>fh', ":Pick help<CR>")
+local opt = { silent = true }
+
+vim.keymap.set('n', '<leader>f', ":Pick files<CR>", opt) -- Duplicate is intentionnal - defaults to Pick git files
+vim.keymap.set('n', '<leader>ff', ":Pick files<CR>", opt)
+vim.keymap.set('n', '<leader>fF', ":Pick files tool='git'<CR>", opt)
+vim.keymap.set('n', '<leader>fg', ":Pick grep<CR>", opt)
+vim.keymap.set('n', '<leader>fh', ":Pick help<CR>", opt)

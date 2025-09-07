@@ -2,6 +2,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.surround" },
 })
 
+-- TODO replace by another plugin to get tags surround and other keybindinds
 require("mini.surround").setup({
     mappings = {
         add = 'Sa',            -- Add surrounding in Normal and Visual modes

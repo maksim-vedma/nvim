@@ -1,4 +1,3 @@
--- ~/.config/nvim-new/lsp/lua_ls.lua
 ---@type vim.lsp.Config
 return {
     cmd = { 'lua-language-server' },

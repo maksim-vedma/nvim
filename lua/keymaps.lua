@@ -53,14 +53,17 @@ keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- Go to decla
 keymap("n", "grf", ":lua vim.lsp.buf.format()<CR>", s)            -- Format the current buffer using LSP
 keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", s)     -- Format the current buffer using LSP
 
---  defaults
 -- keymap("n", "grn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+keymap("n", "<leader>ln", ":lua vim.lsp.buf.rename()<CR>", s) -- LSP Code Action ("gra")
 -- keymap("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("n", "<leader>la", ":lua vim.lsp.buf.code_action()<CR>", s) -- LSP Code Action ("gra")
 -- keymap("n", "grr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 -- keymap("n", "gri", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+keymap("n", "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 -- keymap("n", "grt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
--- keymap("n", "g0", "<cmd>lua vim.lsp.buf.oducment_symbol()<CR>", opts)
+keymap("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+-- keymap("n", "g0", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
 -- CTRL-S is mapped in Insert mode to vim.lsp.buf.signature_help()
 -- "an" and "in" are mapped in Visual mode to outer and inner incremental selections, respectively, using vim.lsp.buf.selection_range()
 

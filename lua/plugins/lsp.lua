@@ -8,7 +8,7 @@ vim.pack.add({
 require("mason").setup()
 
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "html", "javascript", "typescript", "tsx", "php", "rust", "yaml" },
+    ensure_installed = { "html", "javascript", "typescript", "tsx", "php", "rust", "yaml", "python" },
     highlight = { enabled = true },
     indent = { enabled = true },
 })
@@ -27,8 +27,26 @@ vim.lsp.enable({
     "ts_ls",
     "rust-analyzer",
     "phpactor",
+    -- "intelephense",
+    "twiggy_language_server",
+    -- "pylsp",
+    "ruff",
+    "basepyright",
 })
 
+-- require('lspconfig').twiggy_language_server.setup{
+--   cmd = { "twiggy-language-server", "--stdio" },
+--   filetypes = { "twig" },
+--   root_dir = require("lspconfig.util").root_pattern("composer.json", "twig.config.js", ".git"),
+--   settings = {
+--     twiggy = {
+--       framework = "symfony", -- or whatever
+--       phpExecutable = "php",
+--       symfonyConsolePath = "bin/console",
+--       -- enable diagnostics etc if available
+--     }
+--   }
+-- }
 -- lsp config can be extended this way if nvim-lspconfig is activated
 -- vim.lsp.config('<client name>', {
 --   root_dir = vim.fn.fnamemodify(debug.getinfo(1, 'S').source:sub(2), ':p:h'),

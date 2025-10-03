@@ -18,6 +18,8 @@ return {
     'typescriptreact',
     'vue',
     'php',
+    'rust',
+    'twig',
   },
   root_markers = { '.git' },
 }

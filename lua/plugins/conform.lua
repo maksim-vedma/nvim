@@ -12,9 +12,21 @@ require("conform").setup({
         -- Conform will run the first available formatter
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         php = { "php_cs_fixer" },
+        twig = { "twig-cs-fixer" },
+        python = { "ruff" },
         -- php = { "php-cs-fixer" }, -- custom php command
     },
     formatters = {
+        -- ["leptos_fmt"] = {
+        --     command = "leptosfmt",
+        --     args = {
+        --         "leptosfmt",
+        --         "--stdin",
+        --         "--rustfmt",
+        --         -- "$FILENAME",
+        --     },
+        --     stdin = false,
+        -- }
         -- ["php-cs-fixer"] = {
         --     command = "php-cs-fixer",
         --     args = {

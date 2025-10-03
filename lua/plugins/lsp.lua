@@ -32,6 +32,8 @@ vim.lsp.enable({
     -- "pylsp",
     "ruff",
     "basepyright",
+    "dockerls",
+    "docker_compose_language_service", -- not recognized ?
 })
 
 -- require('lspconfig').twiggy_language_server.setup{

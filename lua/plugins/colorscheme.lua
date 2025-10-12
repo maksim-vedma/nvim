@@ -1,5 +1,6 @@
 vim.pack.add({
     { src = "https://github.com/webhooked/kanso.nvim" },
+    {src = "https://github.com/oahlen/iceberg.nvim" },
     -- { src = "https://github.com/mcauley-penney/techbase.nvim" },
 })
 

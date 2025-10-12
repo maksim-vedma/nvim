@@ -34,6 +34,7 @@ vim.lsp.enable({
     "basepyright",
     "dockerls",
     "docker_compose_language_service", -- not recognized ?
+    "yamlls", -- not recognized ?
 })
 
 -- require('lspconfig').twiggy_language_server.setup{

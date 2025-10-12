@@ -8,8 +8,22 @@ vim.pack.add({
 require("mason").setup()
 
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "html", "javascript", "typescript", "tsx", "php", "rust", "yaml", "python" },
-    highlight = { enabled = true },
+    ensure_installed = {
+        "html",
+        "javascript",
+        "typescript",
+        "tsx",
+        "php",
+        "rust",
+        "yaml",
+        "python",
+        "rust_with_rstml" -- Leptos RSX syntax
+    },
+    enabled = true,
+    highlight = {
+        enabled = true,
+        enable = true,
+    },
     indent = { enabled = true },
 })
 
@@ -34,7 +48,7 @@ vim.lsp.enable({
     "basepyright",
     "dockerls",
     "docker_compose_language_service", -- not recognized ?
-    "yamlls", -- not recognized ?
+    "yamlls",                          -- not recognized ?
 })
 
 -- require('lspconfig').twiggy_language_server.setup{

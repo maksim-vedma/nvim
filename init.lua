@@ -6,6 +6,7 @@ require("statusline")
 require("autocmds")
 -- plugins
 require("plugins.plenary")
+require("plugins.ts-rstml")
 require("plugins.lsp")
 require("plugins.ui")
 require("plugins.blink")

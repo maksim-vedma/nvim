@@ -13,7 +13,9 @@ require("conform").setup({
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         php = { "php_cs_fixer" },
         twig = { "twig-cs-fixer" },
-        python = { "ruff" },
+        css = { "prettier" },
+        scss = { "prettier" },
+        -- python = { "ruff" },
         -- php = { "php-cs-fixer" }, -- custom php command
     },
     formatters = {

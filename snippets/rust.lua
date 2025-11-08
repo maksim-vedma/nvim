@@ -127,4 +127,16 @@ let <var> = RwSignal::new(<initial>);
             ressource = i(1, "ressource"),
         })
     ),
+    s({ trig = "lif", desc = "Leptos Show" },
+        fmta([[
+<<Show
+    when=move || { <condition> }
+    fallback=|| view! { "else" }
+>>
+    "if"
+<</Show>>
+    ]], {
+            condition = i(1, "condition"),
+        })
+    ),
 }

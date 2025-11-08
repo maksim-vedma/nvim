@@ -19,12 +19,14 @@ require("nvim-treesitter.configs").setup({
         "python",
         "rust_with_rstml" -- Leptos RSX syntax
     },
-    enabled = true,
     highlight = {
-        enabled = true,
         enable = true,
+        enabled = true,
     },
-    indent = { enabled = true },
+    indent = {
+        enable = true,
+        enabled = true,
+    },
 })
 
 -- will load configs from lsp/ dir [lspconfig](https://github.com/neovim/nvim-lspconfig/tree/master/lsp)lspconfig)
@@ -48,7 +50,7 @@ vim.lsp.enable({
     "basepyright",
     "dockerls",
     "docker_compose_language_service", -- not recognized ?
-    "yamlls",                          -- not recognized ?
+    "yamlls",
 })
 
 -- require('lspconfig').twiggy_language_server.setup{

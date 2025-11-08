@@ -70,3 +70,20 @@ keymap("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 -- vim.pack
 keymap("n", "<leader>Pu", ":lua vim.pack.update()<CR>", opts) -- update plugins "pack update"
 keymap("n", "<leader>Pm", ":Mason<CR>", opts)                 -- Open Mason
+
+-- Close current buffer but keep window open
+vim.keymap.set('n', '<leader>bx', function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  vim.cmd('bprevious')                      -- Go to previous buffer
+  vim.cmd('silent! bdelete ' .. bufnr)      -- Delete current buffer
+end, { desc = 'Close current buffer (keep window open)' })
+
+-- Close all buffers except current
+vim.keymap.set('n', '<leader>bo', function()
+  local current = vim.api.nvim_get_current_buf()
+  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(bufnr) and bufnr ~= current then
+      vim.cmd('silent! bdelete ' .. bufnr)
+    end
+  end
+end, { desc = 'Close all other buffers' })

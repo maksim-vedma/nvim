@@ -33,6 +33,13 @@ return {
             t({ "", "<?php endforeach; ?>" })
         }
     ),
+    s({ trig = "pwhile", snippetType = "autosnippet" },
+        {
+            t({ "<?php while ($" }), i(1, "condition"), t({ ") : ?>", "\t" }),
+            i(2),
+            t({ "", "<?php endwhile; ?>" })
+        }
+    ),
     s({ trig = "pred" },
         {
             t({ "<pre>" }),

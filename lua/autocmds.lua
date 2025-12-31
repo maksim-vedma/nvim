@@ -50,6 +50,17 @@ autocmd("BufRead", {
     end,
 })
 
+-- Autocommand for comment style (using 'setlocal commentstring')
+vim.api.nvim_create_autocmd("FileType", {
+  -- Applies to any buffer where the filetype has been set to 'dosini'
+  pattern = "dosini",
+  callback = function()
+    -- Sets the local comment string for the buffer to use the '#' symbol
+    -- This enables proper commenting/uncommenting (gc, gC) in .env files.
+    vim.bo.commentstring = "# %s"
+  end,
+})
+
 -- show cursorline only in active window enable
 -- autocmd({ "WinEnter", "BufEnter" }, {
 -- 	group = augroup("active_cursorline", { clear = true }),
@@ -108,3 +119,25 @@ autocmd("CursorMoved", {
     end,
 })
 
+vim.api.nvim_create_user_command("Puml", function()
+    local file = vim.api.nvim_buf_get_name(0)
+    if file == "" then
+        print("No file")
+        return
+    end
+
+    local ext = file:match("^.+(%..+)$")
+    if ext ~= ".puml" then
+        print("Not a .puml file")
+        return
+    end
+
+    local base = file:gsub("%.puml$", "")
+    local cmd = string.format(
+        "docker run --rm -v \"%s\":\"/work\" -u $(id -u):$(id -g) plantuml/plantuml -tpng \"/work/%s\"",
+        vim.fn.fnamemodify(file, ":h"),
+        vim.fn.fnamemodify(file, ":t")
+    )
+
+    vim.fn.jobstart(cmd, { stdout_buffered = true })
+end, {})

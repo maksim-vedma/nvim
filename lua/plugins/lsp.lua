@@ -32,7 +32,7 @@ require("nvim-treesitter.configs").setup({
 -- will load configs from lsp/ dir [lspconfig](https://github.com/neovim/nvim-lspconfig/tree/master/lsp)lspconfig)
 -- if nvim-lspconfig plugin is enabled, will load config from the plugin repo instead and need to extend base config using vim.lsp.config('client', {}) (see below)
 vim.lsp.enable({
-    -- "bashls",
+    "bashls",
     "lua_ls",
     "emmet_language_server",
     "angular-language-server",
@@ -42,8 +42,8 @@ vim.lsp.enable({
     "tinymist",
     "ts_ls",
     "rust-analyzer",
-    "phpactor",
-    -- "intelephense",
+    -- "phpactor",
+    "intelephense",
     "twiggy_language_server",
     -- "pylsp",
     "ruff",

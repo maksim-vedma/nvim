@@ -1,3 +1,4 @@
+local indent = 4
 -- Options
 vim.o.guicursor = "i:block" -- Use block cursor in insert mode
 -- vim.o.colorcolumn = "80" -- Highlight column 80
@@ -9,9 +10,9 @@ vim.o.swapfile = false -- Disable swap files
 vim.o.autoindent = true -- Enable auto indentation -- was true
 vim.o.smartindent = true -- Enable auto indentation
 vim.o.expandtab = true -- Use spaces instead of tabs
-vim.o.tabstop = 4 -- Number of spaces for a tab
-vim.o.softtabstop = 4 -- Number of spaces for a tab when editing
-vim.o.shiftwidth = 4 -- Number of spaces for autoindent
+vim.o.tabstop = indent -- Number of spaces for a tab
+vim.o.softtabstop = indent -- Number of spaces for a tab when editing
+vim.o.shiftwidth = indent -- Number of spaces for autoindent
 vim.o.shiftround = true -- Round indent to multiple of shiftwidth
 vim.o.listchars = "tab: ,multispace:|   ," -- Characters to show for tabs, spaces, and end of line
 vim.o.list = true -- Show whitespace characters

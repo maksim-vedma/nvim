@@ -6,12 +6,22 @@ vim.g.mapleader = " "
 -- keymap("n", "<space>", "<Nop>")
 
 keymap("i", "jk", "<ESC>")
+-- splits
 keymap("n", "<leader>-", ":split<CR>")
 keymap("n", "<leader>|", ":vsplit<CR>")
+-- buffer navigation
 keymap("n", "<S-h>", ":bprev<CR>", s)
 keymap("n", "<S-l>", ":bnext<CR>", s)
-keymap("n", "<leader>w", ":w<CR>")
-keymap("n", "<leader>q", ":q<CR>")
+-- quickfix navigation
+keymap("n", "<A-k>", ":cprev<CR>", s)
+keymap("n", "<A-j>", ":cnext<CR>", s)
+
+vim.keymap.set("n", "<A-q>", function()
+    vim.diagnostic.setqflist({
+        open = true,
+        severity = vim.diagnostic.severity.ERROR,
+    })
+end)
 
 -- Switch window
 keymap("n", "<C-h>", "<C-W>h")
@@ -54,7 +64,7 @@ keymap("n", "grf", ":lua vim.lsp.buf.format()<CR>", s)            -- Format the 
 keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", s)     -- Format the current buffer using LSP
 
 -- keymap("n", "grn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-keymap("n", "<leader>ln", ":lua vim.lsp.buf.rename()<CR>", s) -- LSP Code Action ("gra")
+keymap("n", "<leader>ln", ":lua vim.lsp.buf.rename()<CR>", s)      -- LSP Code Action ("gra")
 -- keymap("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("n", "<leader>la", ":lua vim.lsp.buf.code_action()<CR>", s) -- LSP Code Action ("gra")
 -- keymap("n", "grr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
@@ -73,17 +83,17 @@ keymap("n", "<leader>Pm", ":Mason<CR>", opts)                 -- Open Mason
 
 -- Close current buffer but keep window open
 vim.keymap.set('n', '<leader>bx', function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  vim.cmd('bprevious')                      -- Go to previous buffer
-  vim.cmd('silent! bdelete ' .. bufnr)      -- Delete current buffer
+    local bufnr = vim.api.nvim_get_current_buf()
+    vim.cmd('bprevious')               -- Go to previous buffer
+    vim.cmd('silent! bdelete ' .. bufnr) -- Delete current buffer
 end, { desc = 'Close current buffer (keep window open)' })
 
 -- Close all buffers except current
 vim.keymap.set('n', '<leader>bo', function()
-  local current = vim.api.nvim_get_current_buf()
-  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.api.nvim_buf_is_loaded(bufnr) and bufnr ~= current then
-      vim.cmd('silent! bdelete ' .. bufnr)
+    local current = vim.api.nvim_get_current_buf()
+    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(bufnr) and bufnr ~= current then
+            vim.cmd('silent! bdelete ' .. bufnr)
+        end
     end
-  end
 end, { desc = 'Close all other buffers' })

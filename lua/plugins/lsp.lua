@@ -42,8 +42,8 @@ vim.lsp.enable({
     "tinymist",
     "ts_ls",
     "rust-analyzer",
-    -- "phpactor",
-    "intelephense",
+    "phpactor",
+    -- "intelephense",
     "twiggy_language_server",
     -- "pylsp",
     "ruff",
@@ -51,6 +51,7 @@ vim.lsp.enable({
     "dockerls",
     "docker_compose_language_service", -- not recognized ?
     "yamlls",
+    "mmdc", -- mermaid uml
 })
 
 -- require('lspconfig').twiggy_language_server.setup{

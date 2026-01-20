@@ -16,13 +16,6 @@ keymap("n", "<S-l>", ":bnext<CR>", s)
 keymap("n", "<A-k>", ":cprev<CR>", s)
 keymap("n", "<A-j>", ":cnext<CR>", s)
 
-vim.keymap.set("n", "<A-q>", function()
-    vim.diagnostic.setqflist({
-        open = true,
-        severity = vim.diagnostic.severity.ERROR,
-    })
-end)
-
 -- Switch window
 keymap("n", "<C-h>", "<C-W>h")
 keymap("n", "<C-j>", "<C-W>j")
@@ -62,6 +55,7 @@ keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- Go to decla
 
 keymap("n", "grf", ":lua vim.lsp.buf.format()<CR>", s)            -- Format the current buffer using LSP
 keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", s)     -- Format the current buffer using LSP
+keymap("n", "<S-A-f>", ":lua vim.lsp.buf.format()<CR>", s)     -- Format the current buffer using LSP
 
 -- keymap("n", "grn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 keymap("n", "<leader>ln", ":lua vim.lsp.buf.rename()<CR>", s)      -- LSP Code Action ("gra")
@@ -77,7 +71,15 @@ keymap("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 -- CTRL-S is mapped in Insert mode to vim.lsp.buf.signature_help()
 -- "an" and "in" are mapped in Visual mode to outer and inner incremental selections, respectively, using vim.lsp.buf.selection_range()
 
+vim.keymap.set("n", "<leader>ld", function()
+    vim.diagnostic.setqflist({
+        open = true,
+        severity = vim.diagnostic.severity.ERROR,
+    })
+end)
+
 -- vim.pack
+keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", s)     -- Format the current buffer using LSP
 keymap("n", "<leader>Pu", ":lua vim.pack.update()<CR>", opts) -- update plugins "pack update"
 keymap("n", "<leader>Pm", ":Mason<CR>", opts)                 -- Open Mason
 

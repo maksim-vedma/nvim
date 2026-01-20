@@ -141,3 +141,8 @@ vim.api.nvim_create_user_command("Puml", function()
 
     vim.fn.jobstart(cmd, { stdout_buffered = true })
 end, {})
+
+vim.api.nvim_create_autocmd(
+  { "FocusGained", "BufEnter" },
+  { command = "checktime" }
+)

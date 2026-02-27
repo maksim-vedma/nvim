@@ -10,5 +10,6 @@ require('oil').setup({
         end,
     },
 })
-vim.keymap.set('n', '-', ':Oil<CR>', {silent= true})
 
+vim.keymap.set('n', '-', ':Oil<CR>', {silent= true})
+-- vim.keymap.set('n', '-', ':Oil --float<CR>', {silent= true})

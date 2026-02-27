@@ -1,4 +1,4 @@
-local indent = 4
+local indent = 2
 -- Options
 vim.o.guicursor = "i:block" -- Use block cursor in insert mode
 -- vim.o.colorcolumn = "80" -- Highlight column 80

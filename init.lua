@@ -1,4 +1,4 @@
--- this configuration requires neovim >= 0.12 (vim.pack)
+require('vim._core.ui2').enable({})
 -- core
 require("options")
 require("keymaps")

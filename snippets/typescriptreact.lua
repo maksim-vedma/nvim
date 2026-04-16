@@ -6,9 +6,26 @@ local get_resource_name = function()
   if name == "" or name == nil then
     return "Name"
   end
-  -- Capitalize first letter
-  return name:gsub("^%l", string.upper)
+
+  -- 1. Capitalize the very first letter
+  name = name:gsub("^%l", string.upper)
+
+  -- 2. Find hyphens followed by a letter, remove hyphen and uppercase the letter
+  -- The pattern "-(%l)" captures a lowercase letter after a hyphen
+  name = name:gsub("%-(%l)", function(letter)
+    return letter:upper()
+  end)
+
+  return name
 end
+-- local get_resource_name = function()
+--   local name = vim.fn.expand("%:t:r") -- gets filename without extension
+--   if name == "" or name == nil then
+--     return "Name"
+--   end
+--   -- Capitalize first letter
+--   return name:gsub("^%l", string.upper)
+-- end
 
 return {
   s({ trig = "rc", desc = "React component" },

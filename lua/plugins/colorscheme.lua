@@ -1,7 +1,10 @@
 vim.pack.add({
     { src = "https://github.com/webhooked/kanso.nvim" },
-    { src = "https://github.com/oahlen/iceberg.nvim" },
     { src = "https://github.com/mcauley-penney/techbase.nvim" },
+    { src = "https://github.com/datsfilipe/vesper.nvim" },
+    { src = "https://github.com/aikhe/fleur.nvim" },
+    { src = "https://github.com/nyoom-engineering/oxocarbon.nvim" },
+    { src = "https://github.com/slugbyte/lackluster.nvim" },
 })
 
 require('kanso').setup({
@@ -25,3 +28,5 @@ require('kanso').setup({
 })
 
 vim.cmd("colorscheme kanso-zen")
+-- vim.cmd("colorscheme fleur")
+-- vim.cmd("colorscheme lackluster-hack")

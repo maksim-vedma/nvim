@@ -12,7 +12,7 @@ require("conform").setup({
         -- Conform will run the first available formatter
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         php = { "php_cs_fixer" },
-        twig = { "twig-cs-fixer" },
+        twig = { "twig-cs-fixer", "djlint" },
         css = { "prettier" },
         scss = { "prettier" },
         -- python = { "ruff" },

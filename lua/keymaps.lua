@@ -104,3 +104,7 @@ vim.keymap.set('n', '<leader>bo', function()
     end
   end
 end, { desc = 'Close all other buffers' })
+
+vim.keymap.set("n", "<leader>lc", function()
+  vim.lsp.document_color.color_presentation()
+end, { desc = "Lsp Color format converter" })

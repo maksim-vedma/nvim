@@ -30,4 +30,8 @@ return {
   cmd = { 'intelephense', '--stdio' },
   filetypes = { 'php' },
   root_markers = { '.git', 'composer.json' },
+  -- stubs = {"/sdk/src"},
+  environment = {
+    includePaths = {'/sdk/src'}
+  }
 }

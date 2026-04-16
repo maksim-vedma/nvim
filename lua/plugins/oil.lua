@@ -9,6 +9,7 @@ require('oil').setup({
             return name == '..' or name == '.git'
         end,
     },
+    cleanup_delay_ms = 0,
 })
 
 vim.keymap.set('n', '-', ':Oil<CR>', {silent= true})

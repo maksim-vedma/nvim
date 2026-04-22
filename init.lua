@@ -5,6 +5,7 @@ require("keymaps")
 require("statusline")
 require("autocmds")
 -- plugins
+require("plugins.treesitter")
 require("plugins.plenary")
 require("plugins.ts-rstml")
 require("plugins.lsp")
@@ -25,3 +26,4 @@ require("plugins.ai")
 require("plugins.null_ls")
 -- require("plugins.windsurf")
 require("plugins.render_markdown")
+

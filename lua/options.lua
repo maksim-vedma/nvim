@@ -1,4 +1,4 @@
-local indent = 2
+local indent = 4
 -- Options
 vim.o.guicursor = "i:block" -- Use block cursor in insert mode
 -- vim.o.colorcolumn = "80" -- Highlight column 80
@@ -7,8 +7,8 @@ vim.o.termguicolors = true -- Enable true colors
 vim.o.ignorecase = true -- Ignore case in search
 vim.o.smartcase = true --
 vim.o.swapfile = false -- Disable swap files
-vim.o.autoindent = true -- Enable auto indentation -- was true
-vim.o.smartindent = true -- Enable auto indentation
+vim.o.autoindent = true -- Enable auto indentation 
+vim.o.smartindent = true -- Enable auto indentation (might not be a good idea)
 vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.tabstop = indent -- Number of spaces for a tab
 vim.o.softtabstop = indent -- Number of spaces for a tab when editing

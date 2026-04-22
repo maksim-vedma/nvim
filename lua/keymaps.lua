@@ -6,12 +6,15 @@ vim.g.mapleader = " "
 -- keymap("n", "<space>", "<Nop>")
 
 keymap("i", "jk", "<ESC>")
+
 -- splits
 keymap("n", "<leader>-", ":split<CR>")
 keymap("n", "<leader>|", ":vsplit<CR>")
+
 -- buffer navigation
 keymap("n", "<S-h>", ":bprev<CR>", s)
 keymap("n", "<S-l>", ":bnext<CR>", s)
+
 -- quickfix navigation
 keymap("n", "<A-k>", ":cprev<CR>", s)
 keymap("n", "<A-j>", ":cnext<CR>", s)
@@ -21,6 +24,12 @@ keymap("n", "<C-h>", "<C-W>h")
 keymap("n", "<C-j>", "<C-W>j")
 keymap("n", "<C-k>", "<C-W>k")
 keymap("n", "<C-l>", "<C-W>l")
+
+-- window resizing
+keymap("n", "<C-Up>", ":resize +2<CR>", { desc = "Increase window height" })
+keymap("n", "<C-Down>", ":resize -2<CR>", { desc = "Decrease window height" })
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
 
 
 -- keymap("n", "j", function()
@@ -77,10 +86,10 @@ keymap("n", "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 -- "an" and "in" are mapped in Visual mode to outer and inner incremental selections, respectively, using vim.lsp.buf.selection_range()
 
 vim.keymap.set("n", "<leader>ld", function()
-  vim.diagnostic.setqflist({
-    open = true,
-    severity = vim.diagnostic.severity.ERROR,
-  })
+    vim.diagnostic.setqflist({
+        open = true,
+        severity = vim.diagnostic.severity.ERROR,
+    })
 end)
 
 -- vim.pack
@@ -90,21 +99,21 @@ keymap("n", "<leader>Pm", ":Mason<CR>", opts)                 -- Open Mason
 
 -- Close current buffer but keep window open
 vim.keymap.set('n', '<leader>bx', function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  vim.cmd('bprevious')                 -- Go to previous buffer
-  vim.cmd('silent! bdelete ' .. bufnr) -- Delete current buffer
+    local bufnr = vim.api.nvim_get_current_buf()
+    vim.cmd('bprevious')               -- Go to previous buffer
+    vim.cmd('silent! bdelete ' .. bufnr) -- Delete current buffer
 end, { desc = 'Close current buffer (keep window open)' })
 
 -- Close all buffers except current
 vim.keymap.set('n', '<leader>bo', function()
-  local current = vim.api.nvim_get_current_buf()
-  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.api.nvim_buf_is_loaded(bufnr) and bufnr ~= current then
-      vim.cmd('silent! bdelete ' .. bufnr)
+    local current = vim.api.nvim_get_current_buf()
+    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(bufnr) and bufnr ~= current then
+            vim.cmd('silent! bdelete ' .. bufnr)
+        end
     end
-  end
 end, { desc = 'Close all other buffers' })
 
 vim.keymap.set("n", "<leader>lc", function()
-  vim.lsp.document_color.color_presentation()
+    vim.lsp.document_color.color_presentation()
 end, { desc = "Lsp Color format converter" })

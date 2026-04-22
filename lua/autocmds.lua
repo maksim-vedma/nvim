@@ -52,13 +52,13 @@ autocmd("BufRead", {
 
 -- Autocommand for comment style (using 'setlocal commentstring')
 vim.api.nvim_create_autocmd("FileType", {
-  -- Applies to any buffer where the filetype has been set to 'dosini'
-  pattern = "dosini",
-  callback = function()
-    -- Sets the local comment string for the buffer to use the '#' symbol
-    -- This enables proper commenting/uncommenting (gc, gC) in .env files.
-    vim.bo.commentstring = "# %s"
-  end,
+    -- Applies to any buffer where the filetype has been set to 'dosini'
+    pattern = "dosini",
+    callback = function()
+        -- Sets the local comment string for the buffer to use the '#' symbol
+        -- This enables proper commenting/uncommenting (gc, gC) in .env files.
+        vim.bo.commentstring = "# %s"
+    end,
 })
 
 -- show cursorline only in active window enable
@@ -143,6 +143,17 @@ vim.api.nvim_create_user_command("Puml", function()
 end, {})
 
 vim.api.nvim_create_autocmd(
-  { "FocusGained", "BufEnter" },
-  { command = "checktime" }
+    { "FocusGained", "BufEnter" },
+    { command = "checktime" }
 )
+
+-- Ensure 4 spaces indent in yaml files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "yaml", "yml" },
+    callback = function()
+        vim.opt_local.tabstop = 4
+        vim.opt_local.shiftwidth = 4
+        vim.opt_local.softtabstop = 4
+        vim.opt_local.expandtab = true
+    end
+})

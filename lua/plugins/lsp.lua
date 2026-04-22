@@ -2,32 +2,9 @@ vim.pack.add({
   -- lsp
   -- { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/mason-org/mason.nvim" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 })
 
 require("mason").setup()
-
-require("nvim-treesitter.configs").setup({
-  ensure_installed = {
-    "html",
-    "javascript",
-    "typescript",
-    "tsx",
-    "php",
-    "rust",
-    "yaml",
-    "python",
-    "rust_with_rstml" -- Leptos RSX syntax
-  },
-  highlight = {
-    enable = true,
-    enabled = true,
-  },
-  indent = {
-    enable = true,
-    enabled = true,
-  },
-})
 
 -- will load configs from lsp/ dir [lspconfig](https://github.com/neovim/nvim-lspconfig/tree/master/lsp)lspconfig)
 -- if nvim-lspconfig plugin is enabled, will load config from the plugin repo instead and need to extend base config using vim.lsp.config('client', {}) (see below)
@@ -57,22 +34,8 @@ vim.lsp.enable({
   "vue_ls",
 })
 
--- vue try
--- local vue_language_server_path = '~/.local/share/nvim/mason/packages/vue-language-server'
--- local tsserver_filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
--- local vue_plugin = {
---   name = '@vue/typescript-plugin',
---   location = vue_language_server_path,
---   languages = { 'vue' },
---   configNamespace = 'typescript',
--- }
 
--- vue try
--- 1. Dynamically find the Mason path for the Vue plugin
-
-
--- IMPORTANT: nvchad users cannot use `$MASON` directly as the option is set to `skip`, see: https://github.com/NvChad/NvChad/blob/29ebe31ea6a4edf351968c76a93285e6e108ea08/lua/nvchad/configs/mason.lua#L4
-
+-- Vue lsp way to complex config
 local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
     '/vue-language-server' .. '/node_modules/@vue/language-server'
 local tsserver_filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
@@ -95,18 +58,6 @@ local vtsls_config = {
   filetypes = tsserver_filetypes,
 }
 
--- local ts_ls_config = {
---   init_options = {
---     plugins = {
---       vue_plugin,
---     },
---   },
---   filetypes = tsserver_filetypes,
--- }
-
--- If you are on most recent `nvim-lspconfig`
-local vue_ls_config = {}
--- If you are not on most recent `nvim-lspconfig` or you want to override
 local vue_ls_config = {
   on_init = function(client)
     client.handlers['tsserver/request'] = function(_, result, context)
@@ -146,21 +97,20 @@ local vue_ls_config = {
   end,
 }
 
--- nvim 0.11 or above
 vim.lsp.config('vtsls', vtsls_config)
 vim.lsp.config('vue_ls', vue_ls_config)
 -- vim.lsp.config('ts_ls', ts_ls_config)
 vim.lsp.enable({ 'vtsls', 'vue_ls' }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
 -- keep this
+
 vim.diagnostic.config({ virtual_text = true, signs = true })
 
+-- Color preview and color picker via Lsp
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if client and client.server_capabilities.colorProvider then
-      vim.notify("Color Provider Active: " .. client.name)
       vim.lsp.document_color.enable(true, nil, { style = "virtual" })
-      -- vim.lsp.document_color.color_presentation();
     end
   end,
 })

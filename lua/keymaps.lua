@@ -49,10 +49,10 @@ keymap("n", "<leader>-", "<cmd>split<CR>", s)   -- Split the window horizontally
 keymap("n", "<leader>li", ":LspInfo<CR>", s)
 -- clipboard
 -- -- yank
-keymap({ "n", "x" }, "<leader>y", [["+y]], s) -- Yank to system clipboard using leader (Visual Mode)
+-- keymap({ "n", "x" }, "<leader>y", [["+y]], s) -- Yank to system clipboard using leader (Visual Mode)
 -- -- paste
-keymap({ "n", "v" }, "<leader>p", '"+p')      -- Paste from system clipboard
-keymap({ "n", "v" }, "<leader>P", '"+P')      -- Paste from system clipboard
+-- keymap({ "n", "v" }, "<leader>p", '"+p')      -- Paste from system clipboard
+-- keymap({ "n", "v" }, "<leader>P", '"+P')      -- Paste from system clipboard
 -- keymap("v", "<leader>p", '"_dP')            -- CONFLICT Paste without overwriting the default register
 
 keymap("t", "<Esc>", "<C-\\><C-N>") -- Exit terminal mode
@@ -92,10 +92,12 @@ vim.keymap.set("n", "<leader>ld", function()
     })
 end)
 
--- vim.pack
+-- lsp.format
 keymap("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", s) -- Format the current buffer using LSP
+
+-- vim.pack
 keymap("n", "<leader>Pu", ":lua vim.pack.update()<CR>", opts) -- update plugins "pack update"
-keymap("n", "<leader>Pm", ":Mason<CR>", opts)                 -- Open Mason
+-- keymap("n", "<leader>Pm", ":Mason<CR>", opts)                 -- Open Mason
 
 -- Close current buffer but keep window open
 vim.keymap.set('n', '<leader>bx', function()

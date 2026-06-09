@@ -29,3 +29,4 @@ vim.o.winborder = "none" -- none - single - double - rounded - solid - shadow
 vim.o.hlsearch = true -- Enable/Disable highlighting of search results
 vim.opt.completeopt = { "menuone", "popup", "noinsert" } -- Options for completion menu
 vim.opt.autoread = true
+vim.opt.clipboard:append("unnamedplus")

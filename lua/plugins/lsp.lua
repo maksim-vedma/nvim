@@ -32,6 +32,8 @@ vim.lsp.enable({
   "mmdc",                            -- mermaid uml
   "vts_ls",                          -- newer ts_ls ?
   "vue_ls",
+  "jsonls", -- json-lsp
+  "biome",
 })
 
 

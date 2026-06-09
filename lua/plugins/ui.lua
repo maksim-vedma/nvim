@@ -10,6 +10,31 @@ vim.pack.add({
     -- noice (notify ?)
 })
 
-require("mini.icons").setup()
+require('mini.icons').setup({
+    style     = 'glyph',
+
+    -- Customize per category. See `:h MiniIcons.config` for details.
+    default   = {},
+    directory = {
+        -- Syntaxe : ["nom_du_dossier"] = { glyph = "icône", hl = "GroupeDeCouleur" }
+
+        -- React / Logic
+        -- ["components"] = { glyph = "󰡀", hl = "MiniIconsAzure" },
+        -- ["store"]      = { glyph = "", hl = "MiniIconsYellow" },
+        -- ["hooks"]      = { glyph = "󱐋", hl = "MiniIconsOrange" },
+
+        -- Atomic Design
+        -- ["atoms"]      = { glyph = "", hl = "MiniIconsCyan" },
+        -- ["molecules"]  = { glyph = "󰨗", hl = "MiniIconsGreen" },
+        -- ["organisms"]  = { glyph = "󰵗", hl = "MiniIconsPurple" },
+        -- ["templates"]  = { glyph = "󰟀", hl = "MiniIconsRed" },
+    },
+    extension = {},
+    file      = {},
+    filetype  = {},
+    lsp       = {},
+    os        = {},
+})
+
 require("mini.tabline").setup()
 require("fidget").setup({})

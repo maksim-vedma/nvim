@@ -24,6 +24,6 @@ require("plugins.auto-tag")
 require("plugins.conform")
 require("plugins.ai")
 require("plugins.null_ls")
+require("plugins.phptools")
 -- require("plugins.windsurf")
 require("plugins.render_markdown")
-

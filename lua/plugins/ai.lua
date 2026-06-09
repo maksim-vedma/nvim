@@ -2,11 +2,22 @@ vim.pack.add({
     { src = "https://github.com/nvim-mini/mini.ai" },
 })
 
-require("mini.ai").setup(
+local ai = require("mini.ai");
+ai.setup(
     {
         -- Table with textobject id as fields, textobject specification as values.
         -- Also use this to disable builtin textobjects. See |MiniAi.config|.
         custom_textobjects = nil,
+        -- custom_textobjects = {
+        --     -- 'f' pour l'appel de fonction (function call)
+        --     f = ai.gen_spec.treesitter({ a = '@call.outer', i = '@call.inner' }),
+        --
+        --     -- 'F' pour la définition de fonction/méthode
+        --     F = ai.gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }),
+        --
+        --     -- 'c' pour la classe
+        --     c = ai.gen_spec.treesitter({ a = '@class.outer', i = '@class.inner' }),
+        -- },
 
         -- Module mappings. Use `''` (empty string) to disable one.
         mappings = {

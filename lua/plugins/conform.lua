@@ -13,12 +13,22 @@ require("conform").setup({
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         php = { "php_cs_fixer" },
         twig = { "twig-cs-fixer", "djlint" },
+        html = { "prettier" },
         css = { "prettier" },
         scss = { "prettier" },
+        -- typescript = { "biome" },
+        -- typescriptreact = { "prettier" },
+        typescriptreact = { "biome" },
         -- python = { "ruff" },
         -- php = { "php-cs-fixer" }, -- custom php command
     },
     formatters = {
+        ["biome"] = {
+            -- Biome будет использоваться только если найден файл biome.json
+            condition = function(ctx)
+                return vim.fs.find({ "biome.json" }, { path = ctx.filename, upward = true })
+            end,
+        }
         -- ["leptos_fmt"] = {
         --     command = "leptosfmt",
         --     args = {

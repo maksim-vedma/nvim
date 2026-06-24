@@ -9,7 +9,7 @@ vim.pack.add({
 
 
 require('kanso').setup({
-    compile = false, -- need to run KansoCompile (maybe twice...)
+    compile = true, -- need to run KansoCompile (maybe twice...)
     transparent = true,
     background = {
         dark = "zen",

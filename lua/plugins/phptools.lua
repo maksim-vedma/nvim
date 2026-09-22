@@ -5,8 +5,8 @@ vim.pack.add({
 -- ~/.config/nvim/init.lua
 require('phptools').setup({
     ui = {
-        enable = true, -- replace vim.ui.select, vim.ui.input, vim.notify with custom floating windows
-        fzf = false, -- use fzf for test filtering if available
+        enable = false, -- replace vim.ui.select, vim.ui.input, vim.notify with custom floating windows
+        fzf = true, -- use fzf for test filtering if available
     },
     custom_toggles = {
         enable = false, -- enable <C-a>/<C-x> word/operator toggles
@@ -38,11 +38,11 @@ local map = vim.keymap.set
 
 -- PhpTools code generation
 -- map('n', '<leader>ll', '<cmd>PhpTools Smart<cr>', { desc = 'Smart detect (method or class)' })
--- map('n', '<leader>lm', '<cmd>PhpTools Method<cr>', { desc = 'Generate method' })
+map('n', '<leader>lpm', '<cmd>PhpTools Method<cr>', { desc = 'Generate method' })
 -- map('n', '<leader>lc', '<cmd>PhpTools Class<cr>', { desc = 'Generate class' })
 map('n', '<leader>lpg', '<cmd>PhpTools GetSet<cr>', { desc = 'Generate getter/setter' })
 map('n', '<leader>lph', '<cmd>PhpTools PropertyHooks<cr>', { desc = 'Generate property hooks' })
--- map('n', '<leader>lf', '<cmd>PhpTools Create<cr>', { desc = 'Create PHP entity' })
+map('n', '<leader>lpc', '<cmd>PhpTools Create<cr>', { desc = 'Create PHP entity' })
 
 -- PHP utilities
 -- map('n', '<leader>ls', '<cmd>PhpTools Scripts<cr>', { desc = 'Run Composer scripts' })

@@ -59,9 +59,15 @@ local function pick_git_conflicts()
   MiniPick.start({
     source = {
       name = "Git Conflicts",
-      items = git_conflict_files(),
+      items = git_conflict_files,
+      choose = MiniPick.default_choose,
+      -- choose = function(item)
+      --   if item then
+      --     vim.cmd('edit ' .. vim.fn.fnameescape(item))
+      --   end
+      -- end,
     },
   })
 end
 
-vim.keymap.set("n", "<leader>gc", pick_git_conflicts)
+vim.keymap.set("n", "<leader>fc", pick_git_conflicts, { desc = "Git conflict files" })

@@ -119,3 +119,6 @@ end, { desc = 'Close all other buffers' })
 vim.keymap.set("n", "<leader>lc", function()
     vim.lsp.document_color.color_presentation()
 end, { desc = "Lsp Color format converter" })
+
+-- Undotree
+vim.keymap.set('n', '<leader>u', '<cmd>Undotree<cr>', { desc = 'Toggle UndoTree' })

@@ -24,7 +24,6 @@ require("conform").setup({
     },
     formatters = {
         ["biome"] = {
-            -- Biome будет использоваться только если найден файл biome.json
             condition = function(ctx)
                 return vim.fs.find({ "biome.json" }, { path = ctx.filename, upward = true })
             end,

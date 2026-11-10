@@ -37,6 +37,14 @@ vim.keymap.set('n', '<leader>fg', ":Pick grep<CR>", opt)
 vim.keymap.set('n', '<leader>fl', ":Pick grep_live<CR>", opt)
 vim.keymap.set('n', '<leader>fh', ":Pick help<CR>", opt)
 
+-- trying out picker on ";"
+-- vim.keymap.set('n', ';f', ":Pick files<CR>", opt)
+-- vim.keymap.set('n', ';F', ":Pick files tool='git'<CR>", opt)
+-- vim.keymap.set('n', ';d', ":Pick buffers<CR>", opt) -- "fd" simply because it's faster to write than "fb"
+-- vim.keymap.set('n', ';g', ":Pick grep<CR>", opt)
+-- vim.keymap.set('n', ';l', ":Pick grep_live<CR>", opt)
+-- vim.keymap.set('n', ';h', ":Pick help<CR>", opt)
+
 
 local MiniPick = require('mini.pick')
 

@@ -16,6 +16,7 @@ require("plugins.flash")
 require("plugins.colorscheme")
 require("plugins.pick")
 require("plugins.git")
+require("plugins.codediff")
 require("plugins.pairs")
 require("plugins.surround")
 require("plugins.typst-preview")
@@ -27,4 +28,6 @@ require("plugins.null_ls")
 require("plugins.phptools")
 -- require("plugins.windsurf")
 require("plugins.render_markdown")
+
+-- opencode -s ses_e3a0a3c0effeuS8cneurg3QUqU
 

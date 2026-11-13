@@ -48,12 +48,10 @@ keymap("n", "<leader>|", "<cmd>vsplit<CR>", s)  -- Split the window vertically
 keymap("n", "<leader>-", "<cmd>split<CR>", s)   -- Split the window horizontally
 keymap("n", "<leader>li", ":LspInfo<CR>", s)
 -- clipboard
--- -- yank
--- keymap({ "n", "x" }, "<leader>y", [["+y]], s) -- Yank to system clipboard using leader (Visual Mode)
--- -- paste
--- keymap({ "n", "v" }, "<leader>p", '"+p')      -- Paste from system clipboard
--- keymap({ "n", "v" }, "<leader>P", '"+P')      -- Paste from system clipboard
--- keymap("v", "<leader>p", '"_dP')            -- CONFLICT Paste without overwriting the default register
+-- Yank the visual selection as a fenced Markdown code block (language inferred
+-- from the filetype) into the system clipboard.
+local codeblock = require("utils.codeblock")
+keymap("x", "<leader>y", codeblock.yank, { desc = "Yank selection as Markdown code block" })
 
 keymap("t", "<Esc>", "<C-\\><C-N>") -- Exit terminal mode
 

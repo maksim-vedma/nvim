@@ -1,14 +1,5 @@
 --- @diagnostic disable: undefined-global
-
--- Helper to get filename and capitalize it (e.g., article -> Article)
-local get_resource_name = function()
-  local name = vim.fn.expand("%:t:r") -- gets filename without extension
-  if name == "" or name == nil then
-    return "Name"
-  end
-  -- Capitalize first letter
-  return name:gsub("^%l", string.upper)
-end
+local helpers = require("utils.snippets")
 
 return {
   s({ trig = "rc", desc = "React component" },
@@ -20,7 +11,7 @@ export const <name> = ({ }) =>> {
 }
 ]],
       {
-        name = f(get_resource_name, {}),
+        name = f(helpers.resource_name, {}),
       }
     )
   ),
@@ -30,7 +21,7 @@ const [<name>, set<name_cap>] = useState(<val>);
     ]], {
       name = i(1, "state"),
       name_cap = f(function(args)
-        return args[1][1]:gsub("^%l", string.upper)
+        return helpers.capitalize(args[1][1])
       end, { 1 }),
       val = i(3, "initial")
     })
@@ -57,7 +48,7 @@ export const use<name> = () =>> {
   return context;
 };
 ]], {
-      name = f(get_resource_name, {}),
+      name = f(helpers.resource_name, {}),
     })
   ),
 }

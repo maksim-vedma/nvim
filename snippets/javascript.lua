@@ -1,21 +1,5 @@
 --- @diagnostic disable: undefined-global
-local get_resource_name = function()
-    local name = vim.fn.expand("%:t:r") -- gets filename without extension
-    if name == "" or name == nil then
-        return "Name"
-    end
-
-    -- 1. Capitalize the very first letter
-    name = name:gsub("^%l", string.upper)
-
-    -- 2. Find hyphens followed by a letter, remove hyphen and uppercase the letter
-    -- The pattern "-(%l)" captures a lowercase letter after a hyphen
-    name = name:gsub("%-(%l)", function(letter)
-        return letter:upper()
-    end)
-
-    return name
-end
+local helpers = require("utils.snippets")
 
 return {
     s({ trig = "qs", desc = "Query Selector" },
@@ -48,7 +32,7 @@ export abstract class <name>Impl {
     }
 }
 ]], {
-            name = f(get_resource_name, {}),
+            name = f(helpers.resource_name, {}),
         })
     ),
 }
